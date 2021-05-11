@@ -12,7 +12,6 @@ namespace TanaraLiv.Controller
     public class ProdutoController : ControllerBase
     {
         [HttpGet("listar")]
-
         public ActionResult Listar()
         {
             ProdutoService service = new ProdutoService(); 

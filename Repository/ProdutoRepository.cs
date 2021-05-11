@@ -17,7 +17,7 @@ namespace TanaraLiv.Repository
                            Id
                           ,Codigo
                           ,Nome
-                           Editora
+                          ,Editora
                       FROM Produto";
 
             var con = new SqlConnection(ConString);

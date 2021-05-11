@@ -13,7 +13,6 @@ namespace TanaraLiv.Controller
     {
         [HttpGet("listar")]
         public ActionResult Listar()
-
         {
             PedidoService service = new PedidoService(); 
             var pedido = service.Listar();
@@ -22,10 +21,12 @@ namespace TanaraLiv.Controller
             return objetoRetorno;
 
         }
-        public ActionResult Obter()
+
+        [HttpGet("obter")]
+        public ActionResult Obter([FromQuery] int Id)
         {
             PedidoService service = new PedidoService(); 
-            var pedido = service.Listar();
+            var pedido = service.Obter(Id);
 
             ObjectResult objetoRetorno = new ObjectResult(pedido);
             return objetoRetorno;
