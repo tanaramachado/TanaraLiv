@@ -55,7 +55,12 @@ namespace TanaraLiv.Repository
                            ,Valor
                            ,Desconto
                            ,Valorliquido
-                         VALUES";
+                         VALUES
+                           (@Id
+                           ,@NumeroPedido
+                           ,@Valor
+                           ,@Desconto
+                           ,@Valorliquido)";
 
             var con = new SqlConnection(ConString);//variavél de conexão
             con.Open();

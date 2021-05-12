@@ -50,7 +50,13 @@ namespace TanaraLiv.Repository
                           ,Cnpj
                           ,Contato
                           ,Telefone  
-                         VALUES";
+                         VALUES
+                           (@Id
+                          ,@Fornecedor
+                          ,@Cnpj
+                          ,@Contato
+                          ,@Telefone)";
+
 
             var con = new SqlConnection(ConString);
             con.Open();

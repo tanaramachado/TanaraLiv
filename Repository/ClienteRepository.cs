@@ -57,7 +57,13 @@ namespace TanaraLiv.Repository
                                ,Email
                                ,Cidade
                                ,Estado
-                         VALUES";
+                         VALUES
+                                (@Id
+                                ,@Nome  
+                                ,@Cpf
+                                ,@Email
+                                ,@Cidade
+                                ,@Estado)";
 
             var con = new SqlConnection(ConString);//variavél de conexão
             con.Open();

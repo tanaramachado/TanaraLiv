@@ -31,7 +31,7 @@ namespace TanaraLiv.Repository
                            Id
                           ,Codigo
                           ,Nome
-                           Editora
+                          ,Editora
                       FROM Produto
                         WHERE Id = @Id";
 
@@ -44,12 +44,16 @@ namespace TanaraLiv.Repository
 
         public void Inserir(Produto produto)
         {
-            string query = @"INSERT INTO Produto
-                                Id
-                               ,Codigo
-                               ,Nome
-                               ,Editora
-                         VALUES";
+            string query = @"INSERT INTO [Produto]
+                                   ([Id]
+                                   ,[Codigo]
+                                   ,[Nome]
+                                   ,[Editora])
+                             VALUES
+                                   (@Id
+                                   ,@Codigo
+                                   ,@Nome
+                                   ,@Editora)";
 
             var con = new SqlConnection(ConString);//variavél de conexão
             con.Open();
@@ -60,10 +64,9 @@ namespace TanaraLiv.Repository
         public void Atualizar(Produto produto)
         {
             string query = @"UPDATE Produto
-                           SET Id
-                              ,Codigo
-                              ,Nome
-                              ,Editora
+                           SET Codigo = @Codigo
+                              ,Nome = @Nome
+                              ,Editora = @Editora
                          WHERE Id = @Id";
 
             var con = new SqlConnection(ConString);
@@ -80,10 +83,6 @@ namespace TanaraLiv.Repository
             var con = new SqlConnection(ConString);
             con.Open();
             con.Execute(query, new { Id }); // Deletou registro no SQL. 
-
-
         }
-
-
     }
 }
